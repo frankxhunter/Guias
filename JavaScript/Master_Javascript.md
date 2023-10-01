@@ -6,7 +6,7 @@
   let obj = {};
   Object.defineProperty(obj, "name", {value: "pedro"})
   ```
-    Si ademas quieres añadirle que dicha propiedad no se pueda modificar y sea solo de lectura:
+  Si ademas quieres añadirle que dicha propiedad no se pueda modificar y sea solo de lectura:
 
   ```
   Object.defineProperty(obj, "name", {value: "pedro"}, writeable: false)
