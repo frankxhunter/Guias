@@ -1,7 +1,9 @@
 # Como importar axios
 
 ## A traves de la consola
-   npm install axios
+```
+ npm install axios
+```
 
 
 ## Poner en el head del html
