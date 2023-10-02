@@ -4,13 +4,13 @@ Los diferentes valores de la propiedad display determinan cómo se comporta un e
 
 ## Valores más comunes de la propiedad display y su funcionalidad:
 
-* block: Hace que el elemento se comporte como un bloque, ocupando todo el ancho disponible en su contenedor padre. Los elementos de bloque comienzan en una nueva línea y se apilan verticalmente [0]. Ejemplos de elementos de bloque son `<div>, <p>, <h1>-<h6>, <ul>, <ol></p>`, entre otros.
+* block: Hace que el elemento se comporte como un bloque, ocupando todo el ancho disponible en su contenedor padre. Los elementos de bloque comienzan en una nueva línea y se apilan verticalmente  . Ejemplos de elementos de bloque son `<div>, <p>, <h1>-<h6>, <ul>, <ol></p>`, entre otros.
 
-* inline: Hace que el elemento se comporte como una caja en línea, ocupando solo el espacio necesario para su contenido. Los elementos en línea no comienzan en una nueva línea y se apilan horizontalmente [0]. Ejemplos de elementos en línea son ``<span>, <a>, <strong>, <em>``, entre otros.
-inline-block: Combina las características de los elementos en línea y los elementos de bloque. El elemento se comporta como una caja en línea, pero también puede tener un ancho y altura definidos. Los elementos en línea bloque pueden tener margen y relleno, y se apilan horizontalmente [0]. Ejemplos de elementos en línea bloque son ``<img>, <input>, <button>``, entre otros.
+* inline: Hace que el elemento se comporte como una caja en línea, ocupando solo el espacio necesario para su contenido. Los elementos en línea no comienzan en una nueva línea y se apilan horizontalmente  . Ejemplos de elementos en línea son ``<span>, <a>, <strong>, <em>``, entre otros.
+inline-block: Combina las características de los elementos en línea y los elementos de bloque. El elemento se comporta como una caja en línea, pero también puede tener un ancho y altura definidos. Los elementos en línea bloque pueden tener margen y relleno, y se apilan horizontalmente  . Ejemplos de elementos en línea bloque son ``<img>, <input>, <button>``, entre otros.
 
 * none: Oculta el elemento y no ocupa espacio en el diseño de la página. Los elementos con display: none no se renderizan en absoluto y no son accesibles para los usuarios. Esto puede ser útil para ocultar elementos en ciertas condiciones o para crear interacciones dinámicas [1].
-flex: Crea un contenedor flexible que permite distribuir y alinear los elementos secundarios de manera flexible. Es muy útil para crear diseños responsivos y de fácil alineación [0]. Ejemplo de uso:
+flex: Crea un contenedor flexible que permite distribuir y alinear los elementos secundarios de manera flexible. Es muy útil para crear diseños responsivos y de fácil alineación  . Ejemplo de uso:
 ```
 .container {
   display: flex;
@@ -19,7 +19,7 @@ flex: Crea un contenedor flexible que permite distribuir y alinear los elementos
 }
 ```
 
-* grid: Crea un contenedor de cuadrícula que permite organizar los elementos secundarios en filas y columnas. Es una forma poderosa de crear diseños complejos y adaptables [0]. Ejemplo de uso:
+* grid: Crea un contenedor de cuadrícula que permite organizar los elementos secundarios en filas y columnas. Es una forma poderosa de crear diseños complejos y adaptables  . Ejemplo de uso:
 ```
 .container {
   display: grid;
