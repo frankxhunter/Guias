@@ -235,7 +235,8 @@ background-image: none              No utiliza ninguna imagen de fondo.
 background-image: url("imagen.jpg") Usa la imagen indicada como fondo.
 background-image: gradient          Utiliza un gradiente de tipo lineal, radial o cónico.
 ```
-**Nota**: para ver mas de gradientes ir a la seccion gradientes en (Gradientes)[]
+
+**Nota**: para ver mas de gradientes ir a la seccion gradientes en [Gradientes](https://github.com/frankxhunter/Guias/blob/main/CSS/basico.md#gradientes-y-degradados)
 
 ## Text
 
@@ -272,7 +273,7 @@ o inset como abreviatura
 
 ### Static
 
-```
+```CSS
 position: static;
  ```
 
@@ -325,7 +326,7 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
 La propiedad outline se utiliza comúnmente para resaltar elementos cuando se enfocan o se les aplica alguna interacción.
 
-```
+```css
  outline: outline-style outline-color outline-width;
  //Ejemplos
  outline: 2px solid blue;

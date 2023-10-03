@@ -38,3 +38,28 @@ Formas de establecer los colores en css:
 ```
 
 ## Gradientes y degradados
+
+### linear-gradient()
+
+El primer tipo de gradiente es el gradiente lineal, que permite crear fondos degradados que van en una dirección y cambian de un color a otro, dependiendo de la lista de colores indicada por parámetro.
+
+```css
+linear-gradient(color ,color , ... )                        Gradiente de colores (hacia abajo).
+
+linear-gradient(direction ,color ,color , ... )             Gradiente con dirección específica.
+
+linear-gradient(direction ,color  ,size  ,color, size ... ) Gradiente indicando donde comienza a cambiar el color.
+
+linear-gradient(direction, color, size, size   , ... )      Gradiente indicando inicio y fin de cada color.
+
+//Ejemplo
+background-image: linear-gradient(blue, red);
+```
+
+![Linear Gradient](https://lenguajecss.com/css/gradientes/linear-gradient/linear-gradient.png)
+
+#### Direction o angle
+
+Prefiero dar este parametro en angulos
+
+![Angulos](https://lenguajecss.com/css/gradientes/linear-gradient/circle-orientation.png)
