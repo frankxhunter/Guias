@@ -81,3 +81,20 @@ import {sum} from './sum.mjs'// ojo se debe usar template string
 //aqui se debe poner la extension de forma obligaria
 console.log(sum(1, 2));
 ```
+
+## Nota adicionales
+
+### Como convertir una funcion con callback asyncrona en una promesa
+
+Para esto se utiliza una funcionalidad de node llamada util
+
+```javascript
+const { promisify } = require('node:util')
+
+const readFilePromise = promisify(fs.readFile);
+
+//Ahora puedes usar readFile en una promesa
+
+```
+
+*nota*: Solo funciona en modulos nativos q no tienen promesas nativas
