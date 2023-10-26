@@ -24,7 +24,9 @@ Este es uno de los modulos mas importantes de node.js y por tanto de los mas uti
 
 Brinda acceso al sistema de archivo de la computadora
 
-### statSync
+### Metodos de fs
+
+#### statSync
 
 Muestra algunas informaciones sobre el archivo en cuestion
 
@@ -44,6 +46,21 @@ console.log(
 ```
 
 Esto tiene usos mas complejos, investigar mas al respecto
+
+#### readdir
+
+Devuelve una lista de los ficheros q hay en esa direccion
+
+```javascript
+fs.readdir(`.`,(err, file)=>{
+    if(err){
+        console.log("Error reading file:", err);
+    }
+    else{
+        console.log(file)
+    }
+})
+```
 
 ### Para leer el contenido de un archivo
 

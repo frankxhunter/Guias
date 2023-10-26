@@ -98,3 +98,27 @@ const readFilePromise = promisify(fs.readFile);
 ```
 
 *nota*: Solo funciona en modulos nativos q no tienen promesas nativas
+
+### Objeto procress
+
+Es un pbjeto q permite recibir argumentos en la linea de comandos y hacer mas cosas
+
+```javascript
+// argumentos de entrada
+console.log(process.argv);
+
+// controlo el proceso y su salida
+process.exit(0) // indica que todo a salido bien
+process.exit(1) // indica q algo a salido mal y se debe cerrar el proceso
+
+// podemos controlar los eventos del proceso
+process.on('exit', ()=>{
+    console.log("Cerrando el programa")
+})
+
+// current working directory
+console.log(process.cwd())
+
+// platform
+console.log(process.env.HOLA) //relacionado con las variables de entorno
+```
