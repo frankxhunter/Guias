@@ -32,3 +32,20 @@ let nombresCompletos = usuarios.map(function(elemento){
 console.log(nombresCompletos); // ["Susan Steward", "Daniel Longbottom", "Jacob Black"]
 
 ```
+
+## Some
+
+Sirve para verificar si algun elemento del array cumple con la condicion
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// Verificar si al menos un número es mayor que 3
+const result = numbers.some((number) => number > 3);
+
+console.log(result); // Devolverá true, ya que 4 y 5 son mayores que 3
+
+//Ejemplo practico
+const filter = movies.filter( movies => movie.genre.some( g => g.toLowerCase() ===
+genre.toLowerCase()))
+```

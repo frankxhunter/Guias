@@ -1,0 +1,30 @@
+## Obtener todas la peliculas
+GET http://localhost:3000/movies
+
+### Obtener una pelicula por id
+GET http://localhost:3000/movies/1
+
+### Obtener peliculas por genero 
+GET http://localhost:3000/movies?genre=Comedia
+
+### Crear una pelicula con el metodo POST
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+      "sql": "SELECT * FROM users", 
+      "title": "Pelicula 10",
+      "year": 2015,
+      "director": "Director 10",
+      "duration": 115,
+      "genre": ["Animación"],
+      "rate": 9.1
+}
+
+### Actualizar la informacion de un pelicula
+PATCH http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+    "year": 2002
+}

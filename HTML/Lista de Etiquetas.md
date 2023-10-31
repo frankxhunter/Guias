@@ -1,28 +1,28 @@
-# Lista de etiquetas 
+# Lista de etiquetas
 
 ## ETIQUETAS INICIALES O DE RAÍZ
 
 <!DOCTYPE html> Indica al navegador que el documento está basado en el estándar HTML5
 
-<html> </html> Representa la raíz de un documento HTML. Todos los demás elementos de la estructura HTML deben ser recogidos dentro de estas etiquetas.
+``<html> </html>`` Representa la raíz de un documento HTML. Todos los demás elementos de la estructura HTML deben ser recogidos dentro de estas etiquetas.
 
 ## METADATOS DEL DOCUMENTO
 
-<head> </head> Representa una colección de metadatos acerca del documento, incluyendo enlaces a, o definiciones de, scripts y hojas de estilo. El resto de etiquetas de metadatos, irán recogidas dentro de las etiquetas de apertura y cierre del head. Importante explicar que estos metadatos del documento, es información para el navegador y no contenido que será visible en la página web. A excepción de la etiqueta <title> que veremos a continuación.
+``<head> </head>`` Representa una colección de metadatos acerca del documento, incluyendo enlaces a, o definiciones de, scripts y hojas de estilo. El resto de etiquetas de metadatos, irán recogidas dentro de las etiquetas de apertura y cierre del head. Importante explicar que estos metadatos del documento, es información para el navegador y no contenido que será visible en la página web. A excepción de la etiqueta ``<title>`` que veremos a continuación.
 
-<title> </title> Etiqueta usada para definir el título de la página web.
+``<title> </title>`` Etiqueta usada para definir el título de la página web.
 
-<link> Se usa para enlazar recursos externos al documento HTML. El ejemplo más común son las hojas de estilos CSS.Los atributos más importantes son rel, que define la relación entre el documento actual y el recurso vinculado, y href, que especifica la URL del recurso
+``<link>`` Se usa para enlazar recursos externos al documento HTML. El ejemplo más común son las hojas de estilos CSS.Los atributos más importantes son rel, que define la relación entre el documento actual y el recurso vinculado, y href, que especifica la URL del recurso
 
-<meta> Etiqueta usada para definir otros metadatos que no se pueden definir con una etiqueta HTML especifica. Por ejemplo para definir el autor del sitio, o la descripción del mismo.Los atributos más importantes son name, que define el nombre del metadato, y content, que define el valor del metadato 
+``<meta>`` Etiqueta usada para definir otros metadatos que no se pueden definir con una etiqueta HTML especifica. Por ejemplo para definir el autor del sitio, o la descripción del mismo.Los atributos más importantes son name, que define el nombre del metadato, y content, que define el valor del metadato
 
-<style> </style> Etiquetas usadas para introducir código CSS en línea, es decir, en el propio documento HTML.
+``<style> </style>`` Etiquetas usadas para introducir código CSS en línea, es decir, en el propio documento HTML.
 
 ## ETIQUETAS DE SECCIONES O PARA ESTRUCTURAR EL HTML
 
-<body> </body> Al contrario que la etiqueta de metadatos <head>, todo lo que quieras mostrar en la página web debe ir recogido dentro de las etiquetas de apertura y cierre de <body>. Este contenido será el que se muestre en la web.
+``<body> </body>`` Al contrario que la etiqueta de metadatos ``<head>``, todo lo que quieras mostrar en la página web debe ir recogido dentro de las etiquetas de apertura y cierre de ``<body>``. Este contenido será el que se muestre en la web.
 
-<nav> </nav> Usadas para definir el contenido que será la sección de navegación de la web.
+``<nav> </nav>`` Usadas para definir el contenido que será la sección de navegación de la web.
 
 <main> </main> Se usa para definir el contenido principal del documento. Solamente puede existir uno por documento.
 
@@ -102,7 +102,7 @@ alt: Proporciona un texto alternativo que se muestra si la imagen no se puede ca
 
 <audio> </audio> Usada para cargar en una web un archivo de audio o stream de audio.
 
-<source> Permite a autores especificar recursos multimedia alternativos para las etiquetas de 
+<source> Permite a autores especificar recursos multimedia alternativos para las etiquetas de
 
 <video> o <audio>
 
@@ -153,10 +153,13 @@ value: Define el valor inicial del campo de entrada.
 <textarea> </textarea> Añade un campo al usuario para que pueda introducir texto en unas líneas máximas de texto que el desarrollador puede definir.
 
 ## Notas o buenas practicas
+
 - No poner más de un h1, H2 y h3 varias veces, pero no muchas, H4, h5 y h6 ilimitadas
 
 - Para crear un enlace en HTML que no abra una nueva página, sino que se abra en la misma página en la que se encuentra, se puede utilizar el atributo "target" y establecerlo en "_self". Por ejemplo:
+
 ```
 <a href="https://www.ejemplo.com" target="_self">Enlace</a>
 ```
+
 En este caso, cuando el usuario haga clic en el enlace, se cargará la página de "ejemplo.com" en la misma pestaña o ventana del navegador en la que se encuentra actualmente.

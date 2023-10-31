@@ -168,6 +168,18 @@ Promise.all([
 console.log("Ejecutando otro proceso....")
 ```
 
+### Como crear un archivo
+
+```javascript
+const fs = require('fs');
+
+fs.writeFile("./assets/texto.md","Esto es una prueba",(err)=>{
+  if(err){
+    throw err
+  }
+})
+```
+
 ## Path
 
 Sirve para manejar las rutas de archivos
@@ -190,4 +202,61 @@ console.log(base)
 //Conseguir la extension de un archivo
 const extension = path.extname(`/tmp/user-secrets/password.txt`)
 console.log(extension)
+```
+
+## Http
+
+Como crear un servidor con node:
+
+```javascript
+const http = require('node:http')
+
+const server = http.createServer((req, res) => {
+  console.log('request received')
+  res.end('Hello world')
+})
+
+server.listen(0, () => { // puerto 0 es para q eliga un puerto automaticamente
+  console.log(`Server listening on port http://localhost:${server.address().port}`)
+})
+```
+
+## net
+
+ Es como http pero mas rapido
+ Ejemplo de una funcion que busca que puerto esta disponible:
+
+ ```javascript
+ const net = require('node:net')
+function findPortAvailable (desiredPort) {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer()
+
+    server.listen(desiredPort, () => {
+      const port = server.address().port
+      server.close(() => {
+        resolve(port)
+      })
+    })
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        findPortAvailable(desiredPort + 1).then(port => resolve(port))
+      } else {
+        reject(err)
+      }
+    })
+  })
+}
+
+module.exports = findPortAvailable
+
+```
+
+## Crypto
+
+Se utiliza para crear id aleatorios
+
+```javascript
+  const crypto = require('node:crypto')
+  const id = crypto.randomUUID()
 ```

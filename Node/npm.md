@@ -18,6 +18,19 @@ Utilizar en la console la linea ```npm init``` y responder las preguntas que sal
 - npm i dependencia  // instala la dependecia
 - npm unistall dependencia // desinstala la dependencia
 
+## Recomendaciones
+
+Utilizar el apartado de scripts del package.json con `npm run nameScript`
+
+```json
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index.js"
+  },
+```
+
+Ejemplo de uso: `npm run dev`
+
 ## Dependencias q voy usando
 
 ### Picocolors
@@ -30,5 +43,24 @@ console.log(picocolors.red("error"))
 
 ### standard
 
-Es una dependencia de desarrollo
+Es una dependencia de desarrollo para hacer eslint
 
+#### Como configurar el eslint
+
+```json
+"editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true 
+    },
+```
+
+### Nodemon
+
+Como alternativa se puede utilzar ``node --watch index.js``
+
+Hace que el servidor se actualice automaticamente al detectar cambios en el codigo
+
+``npm i nodemon -D`
+
+Se recomienda usarlo como dependencia de desarrollo
+
+Para usarlo `node nodemon index.js`

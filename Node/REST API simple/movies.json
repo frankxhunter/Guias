@@ -1,0 +1,85 @@
+[
+    {
+      "id": 1,
+      "title": "Pelicula 1",
+      "year": 2020,
+      "director": "Director 1",
+      "duration": 120,
+      "genre": "Drama",
+      "rate": 8.0
+    },
+    {
+      "id": 2,
+      "title": "Pelicula 2",
+      "year": 2019,
+      "director": "Director 2",
+      "duration": 105,
+      "genre": "Acción",
+      "rate": 7.5
+    },
+    {
+      "id": 3,
+      "title": "Pelicula 3",
+      "year": 2021,
+      "director": "Director 3",
+      "duration": 130,
+      "genre": "Comedia",
+      "rate": 7.2
+    },
+    {
+      "id": 4,
+      "title": "Pelicula 4",
+      "year": 2018,
+      "director": "Director 4",
+      "duration": 112,
+      "genre": "Comedia",
+      "rate": 8.5
+    },
+    {
+      "id": 5,
+      "title": "Pelicula 5",
+      "year": 2022,
+      "director": "Director 5",
+      "duration": 118,
+      "genre": "Aventura",
+      "rate": 7.8
+    },
+    {
+      "id": 6,
+      "title": "Pelicula 6",
+      "year": 2017,
+      "director": "Director 6",
+      "duration": 125,
+      "genre": "Misterio",
+      "rate": 8.2
+    },
+    {
+      "id": 7,
+      "title": "Pelicula 7",
+      "year": 2023,
+      "director": "Director 7",
+      "duration": 135,
+      "genre": "Fantasía",
+      "rate": 7.0
+    },
+    {
+      "id": 8,
+      "title": "Pelicula 8",
+      "year": 2016,
+      "director": "Director 8",
+      "duration": 110,
+      "genre": "Suspenso",
+      "rate": 8.9
+    },
+    {
+      "id": 9,
+      "title": "Pelicula 9",
+      "year": 2020,
+      "director": "Director 9",
+      "duration": 122,
+      "genre": "Romance",
+      "rate": 6.7
+    }
+    
+  ]
+  
