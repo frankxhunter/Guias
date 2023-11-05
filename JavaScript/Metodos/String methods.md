@@ -18,3 +18,7 @@ let rellenado = texto.padStart(4, "0");
 // texto sigue siendo "5"
 
 ```
+
+## toLowerCase() y toUpperCase()
+
+ Para convertir a miuscula y a mayuscula
