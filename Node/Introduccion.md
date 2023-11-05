@@ -82,6 +82,32 @@ import {sum} from './sum.mjs'// ojo se debe usar template string
 console.log(sum(1, 2));
 ```
 
+*Nota*: Para importar un json se hace de la siguiente forma:
+
+`import movies from './movies.json' assert {type: "json"}`
+
+En el futuro se utilizara la palabra clave `with` en vez de `assert`
+
+### Como utilizar enmascript module en los import con npm sin la extension mjs
+
+Agregar al package.json `"type": "module",`
+
+*2da forma:*
+
+```javascript
+import fs from 'node:fs'
+const movies = JSON.parse(fs.readFileSync('./movies.json', 'utf8'))
+```
+
+*3ra Forma* y la mas recomendada
+
+```javascript
+// crear tu propio require
+import {createRequire} from 'node:module'
+const require = createRequire(import.meta.url)
+const movies= require('./movies.json')
+```
+
 ## Nota adicionales
 
 ### Como convertir una funcion con callback asyncrona en una promesa

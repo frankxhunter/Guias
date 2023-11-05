@@ -165,3 +165,5 @@ app.use(cors({
 }))
 
 ```
+
+## Arquitectura MVC
