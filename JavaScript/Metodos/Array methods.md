@@ -49,3 +49,25 @@ console.log(result); // Devolverá true, ya que 4 y 5 son mayores que 3
 const filter = movies.filter( movies => movie.genre.some( g => g.toLowerCase() ===
 genre.toLowerCase()))
 ```
+
+## Splice
+
+Se utiliza para añadir o elimnar elementos facilmente de un array
+
+```javascript
+// eliminar
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
+
+meses.splice(2, 1);
+console.log(meses);
+
+// Resultado -> ["Enero", "Febrero", "Abril", "Mayo"]
+
+// Agregar
+const meses = ['Enero', 'Marzo', 'Abril', 'Mayo'];
+
+meses.splice(1, 0, 'Febrero');
+console.log(meses);
+
+// Resultado -> ["Enero", "Febrero", "Marzo", "Abril", "Mayo"]
+```

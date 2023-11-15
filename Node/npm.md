@@ -64,3 +64,10 @@ Hace que el servidor se actualice automaticamente al detectar cambios en el codi
 Se recomienda usarlo como dependencia de desarrollo
 
 Para usarlo `node nodemon index.js`
+
+### Mysql2
+
+ Se utiliza para conectarse a la base de datos mysql
+ No recomedable utilizar npm mysql pq no tiene soporte actualmente
+
+ `npm i mysql2`
