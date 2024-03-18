@@ -283,6 +283,113 @@ BEGIN
     cuentaDestino := " 2134 4234 234234";
     UPDATE CUENTAS SET saldo = saldo - importe WHERE cuenta = cuentaOrigen;
     UPDATE CUENTAS SET saldo = saldo + importe WHERE cuenta = cuentaDestino;
-    ISERT INTO MOVIMIENTOS VALUES (cuentaOrigen, cuentaDestino,importe*(-1), SYSTEDATE);
+    INSERT INTO MOVIMIENTOS VALUES (cuentaOrigen, cuentaDestino,importe*(-1), SYSTEDATE);
+    INSERT INTO MOVIMIENTOS VALUES (cuentaDestino, cuentaOrigen, importe, SYSTEDATE);
+    COMMIT;
+EXCEPTION 
+    WHEN  OTHERS THEN
+    dbms_output.put_line('ERROR: ' || SQLERRM );
+    ROLLBACK;
+END;
     
+```
+
+**Nota**: Notar que si hay errores antes del COMMIT se retiraran todos los cambios hechos, ROLLBACK
+
+## Cursores
+
+Son reservas de memoria para almacenar ejecuciones de sentencias SQL
+
+### Cursores implicitos
+
+```sql
+DECLARE 
+    curso VARCHAR(20);
+    filacursos CURSOS€ROWTYPE:
+BEGIN
+    SELECT nombre INTO curo FROM CURSOS WHERE CURSOS WHERE id = 1;
+    dbms_output.put_line(curso);
+
+    SELECT * into filacursos FROM CURSOS WHERE id = 1;
+    dbms_output.put_line(filacursos);
+
+```
+
+- Es necesario usar una variable
+- SELECT campo into variable
+- El acceso es directamente sobre la variable
+
+### Cursores explicitos
+
+```sql
+DECLARE 
+    CURSOR c_cursos IS (SELECT * from cursos);
+    r_cursos c_cursos%ROWTYPE;
+
+BEGIN
+    OPEN c_cursos;
+    LOOP
+    dbms_output.put_line(r_cursos.nombre);
+
+    FETCH c_cursos INTO r_cursos;
+    EXIT WHEN c_cursos%NOTFOUND;
+    end loop;
+
+    CLOSE c_cursos;
+
+END;
+```
+
+## Exceptiones
+
+```sql
+declare
+    importe number;
+    importe_negativo exception;
+    PRAGMA EXCEPTION_INIT (importe_negativo, -200100);
+    BEGIN
+    impote := &import;
+
+    if(importe < 0) then
+    RAISE importe_negativo;
+    END iF;
+
+    Exception
+     WHEN impote_negativo THEN
+        dbms_output.put_line('No puede haber importe negativo');
+    WHEN others then
+    dbms_output.put_line('ERROS: ' || SQLERRM);
+END;
+
+```
+
+## TRIGGERS
+
+Son funciones que se activan ante un cambio en la base de datos
+
+Tienen la siguiente estructura
+
+```sql
+CREATE (OR REPLACE) TRIGGER Nombre del disparador
+(BEFORE | AFTER) (INSERT|UPDATE|DELETE) (OF campo) (OR … )
+ON table
+(FOR EACH ROW ( WHEN Condición))
+DECLARE
+BEGIN
+...
+END;
+```
+
+Ejemplo
+
+```sql
+CREATE OR REPLACE TRIGGER tr_uppercase_names
+BEFORE INSERT ON empleados
+FOR EACH ROW
+BEGIN
+-- Convertir nombre y apellidos a mayusculas antes de insertar el nuevo empelado 
+:NEW.nombre := UPPER(:NEW.nombre);
+:NEW.apellido := UPPER(:NEW.apellido);
+
+END;
 ```
