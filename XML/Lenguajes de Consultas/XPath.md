@@ -82,4 +82,3 @@ Ejemplos
 ``/películas/*`` = Selecciona todos los hijos de películas
 ``//*`` = Todos los elementos del documento
 ``//título[@*]`` = Selecciona el elemento título sin importar el atributo
-
