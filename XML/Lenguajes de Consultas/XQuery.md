@@ -13,13 +13,13 @@ Utiliza las expresione XPath, con una sintaxis FLWOR
 ```html
 <html>
     <body>
-        <hl>
+        <h1>
             Almacenaje de filmpedia
-        </hl>
+        </h1>
         <ul>
             { for $x in doc("inventario21.xml")/almacen/peliculas
             where $x/año>1990
-            order by %x/titulo Lang="es"
+            order by %x/titulo [Lang="es"]
             return <li>{data($x/titulo)}</li>
             }
         </ul>
@@ -32,9 +32,9 @@ Resultado:
 ```html
 <html>
     <body>
-        <hl>
+        <h1>
             Almacenaje de filmpedia
-        </hl>
+        </h1>
         <ul>
             <li>El silencio de los cordeoros</li>
             <li>El cabo del miedo</li>
