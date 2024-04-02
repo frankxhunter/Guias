@@ -67,7 +67,7 @@ DROP campo;
 
 - ``DROP TABLE nombre_tabla`` Se utiliza para eliminar una tabla
 
-- ``DESC nombre_tabla``
+- ``DESC nombre_tabla`` Permite ver la estructura de una tabla 
 
 ## Creacion de un indice
 
