@@ -108,7 +108,7 @@ Select *
 FROM Pokemon;
 ```
 
-Se peude acceder con dml con si fuera una tabla normal
+Se puede acceder con dml con si fuera una tabla normal
 
 ### Borrado de una vista
 
