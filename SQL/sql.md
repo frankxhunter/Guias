@@ -39,6 +39,12 @@ Como en el lenguaje SQL no hay un a universalidad debido a que se ha ido impleme
 **BOOLEAN**: se incluyen aquí os valores “true” y “false” para dictaminar si algo es verdadero o falso y dependiendo de la implementación también se podría almacenar el valor NULL (nulo).
 **BLOB (BINARY LARGE OBJECT)**: almacenas imágenes, documentos, u otros objetos de carácter binario que normalmente se almacenan en un archivo fuera de la tabla en la que estén referenciados. Tipos definidos por el usuario. Los veremos más adelante con detalle
 
+## Comentarios
+
+```sql
+-- Para hacer comentarios en sql esta es la forma de hacerlo
+```
+
 ## Crear copias de seguridad
 
 A continuación se mostrara el comando para crear una copia de seguridad para cada gestor de base de datos:
