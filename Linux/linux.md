@@ -25,8 +25,8 @@
 - ``sort - 1,1 fichero.txt`` muestra el contenido de un fichero ordenado por el numero de caracteres en cada linea
 - ``echo hola > fichero.txt``imprime el texto y lo guarda en el fichero sobrescribiendo la información que tenia
 - ``echo hola >> fichero.txt``imprime el texto y lo guarda en el fichero a continuación de la información que tenia
-- ``cat fichero.txt``
-- ``cat fichero.txt``
+- ``cat fichero.txt`` permite mostrar el contenido del fichero
+- ``chmod +x fichero.txt`` sirve para otorgar permisos, en este caso de ejecución, para otros permisos *r* lectura, *w* escritura, para quitarlos usar *-* en vez de *+*
 
 ## Crear un alias
 
