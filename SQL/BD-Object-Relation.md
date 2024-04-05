@@ -211,22 +211,27 @@ A la hora de definir un metodos, los objectos deben crearse en dos partes, la pr
 
 ```sql
 -- Encabezado del objeto 
-CREATE OR REPLACE TYPE rectangulo AS OBJECT(
+CREATE OR REPLACE TYPE rectangule AS OBJECT(
     id NUMBER, 
     longitud number, 
     ancho number, 
     area number,
 
-    CONSTRUCTOR FUNCTION rectangulo( id number, longitud number, ancho number)
+    -- Contructor
+    CONSTRUCTOR FUNCTION rectangule( id NUMBER, longitud NUMBER, ancho NUMBER)
         RETURN SELF AS RESULT,
-    MAP MEMBER FUNCTION getid
+    
+    -- Funcion la cual con return
+    MEMBER FUNCTION getid
         RETURN NUMBER,
+
+    -- Funcion o procedimiento, no tiene return     
     MEMBER PROCEDURE mostrar_datos( SELF IN OUT NOCOPY rectangulo)
-);
+) NOT FINAL ;
 /
 -- Cuerpo
-CREATE OR REPLACE TYPE BODY rectangulo AS
-    CONSTRUCTOR FUNCTION rectangulo ( id number, longitud number, ancho number)
+CREATE OR REPLACE TYPE BODY rectangule AS
+    CONSTRUCTOR FUNCTION rectangule ( id NUMBER, longitud NUMBER, ancho NUMBER)
         RETURN SELF AS RESULT AS 
     BEGIN
         self.id := id;
@@ -235,16 +240,17 @@ CREATE OR REPLACE TYPE BODY rectangulo AS
         self.area := longitud * ancho;
         RETURN;
     END;
-    MAP MEMBER FUNCTION getid RETURN NUMBER IS
+    MEMBER FUNCTION getid RETURN NUMBER IS
     BEGIN
         RETURN id;
     END;
-    MEMBER PROCEDURE mostrar_datos (SELF IN OUT NOCOPY rectangulo )
+    MEMBER PROCEDURE mostrar_datos (SELF IN OUT NOCOPY rectangue )
     IS 
     BEGIN
-        dbms_output.put_line('longitud: ' || to_char(longitud)
-                            || 'ancho: ' || to_char(ancho));
-        dbms_output.put_line(' area: '|| to_char(area));
+        DBMS_OUTPUT.PUT_LINE('ID: ' || SELF.id);
+        DBMS_OUTPUT.PUT_LINE('Longitud: ' || SELF.longitud);
+        DBMS_OUTPUT.PUT_LINE('Ancho: ' || SELF.ancho);
+        DBMS_OUTPUT.PUT_LINE('Area: ' || SELF.area);
     END;
 END;       
 /
@@ -253,7 +259,12 @@ END;
 CREATE TABLE rectagulos(
     rectangulo Rectagulo
 );
-
+/
 INSERT INTO rectagulos values(rectangulo(1,5,10));
+
+
+/
+-- Ejemplo de como hacer una consulta
+SELECT r.rectangulo.getid() from rectangulos r;
 
 ```
