@@ -38,5 +38,29 @@ Por ejemplo el *.* se utiliza para representar cualquier carácter así q podrí
 *abdf*
 *abfirigiriggie#(€(&*
 
+La siguiente se utiliza para representar cualquier carácter alfanumérico 
+-/\w/ =
+*e*
+*4*
+*G*
 
+Si quieres hacer match con todo el string alfanumérico podrías usar
+
+-/\w*/
+
+También existe:
+-/\W/
+Q sería lo puesto a la anterior, osea, todos los caracteres no alfanuméricos
+
+- Ejemplo para encontrar todos los nombres que comiencen con Fra:
+
+/Fra\w*/
+
+### Otras Wildcards
+
+- /\s/ = Hace match con todos los espacios en blanco, tabulaciones, saltos de línea.
+- /\S/ = Lo contrario, todos los no espacios en blanco
+
+- /\d/ = Todos los digitos
+- /\D/ = Todos los no dígitos
 
