@@ -118,12 +118,20 @@ SELECT [DISTINCT] campos
 Para esto es mejor usar el **JOIN**
 
 ```sql
+--Ejemplo de como usar JOIN
+SELECT p.id, p.name FROM pokemon AS p
+JOIN Categoria AS c 
+ON p.id = c.pokemon_id;
+
+-- Ejemplo de multiples JOINS
 SELECT pokemon.nombre, tipo.nombre
 FROM pokemon
 INNER JOIN pokemon_tipo
-ON pokemon,numero:pokedex = pokemon_tipo,numero_pokedex
+ON pokemon,numero_pokedex = pokemon_tipo,numero_pokedex
 INNER JOIN tipo
 ON pokemon_tipo.id_tipo = tipo.id_tipo;
+--Nota, INNER JOIN es lo mismo que JOIN, ademas tambien existe LEFT JOIN, RIGHT JOIN, FULL JOIN
+
 ```
 
 - **LEFT (OUTER) JOIN** = En el resultado se incluirán los registros de ala tabla de la izquierda que no tengan relación con registros de la tabla de la derecha,

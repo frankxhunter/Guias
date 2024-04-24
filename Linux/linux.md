@@ -1,5 +1,7 @@
 # Comandos de linux para uso general
 
+Para abrir la terminal puedes presionar ``ctrl + alt + T``
+
 ## Comandos para el gesto de ficheros de linux
 
 - ``cd carpeta`` entrar a una carpeta
@@ -36,3 +38,13 @@
 
 Ejemplo
 ``alias listar="ls -l"``
+
+## Variables de entorno
+
+Las variables de entorno son variables que estan disponibles en todo proceso, en Linux exiten muchas variables de entorno por defecto.
+
+Usualmente son nombradas en mayusculas o **UPPERCASE** por ejemplo ``HOME`` que contiene el directorio home del usuario
+
+Puedes usar el comando ``env`` para ver todas las variables de entorno disponibles
+
+Si quieres nombrar una variables puede usar el comando **echo**, por ejemplo ``cd echo %HOME``, notar que es necesario el operador **%**

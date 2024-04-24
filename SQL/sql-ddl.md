@@ -40,34 +40,66 @@ CREATE TABLE TProveedor(
 - A continuacion un ejemplo de como modificar una base de datos
 
 ```sql
-Adicionar un campo
+--Adicionar un campo
 ALTER TABLE nombre_tabla
 ADD campo tipo[(longitud)] [NOT NULL] [UNIQUE]
 [PRIMARY KEY]
 [CHECK condición] [DEFAULT valor];
 
 
-Ejemplo 
+--Ejemplo 
 ALTER TABLE TProveedor
 add cCorreo varchar(50);
 
+--Añadir un campo con restricciones
+ALTER TABLE nombre_tabla
+ADD hash VARCHAR PRIMARY KEY 
+CHECK (hash LIKE '36hya%')
 
-Modificar un campo
+--Modificar un campo
 ALTER TABLE nombre_tabla
 MODIFY COLUMN campo [tipo(longitud)] | [DROP DEFAULT];
 
 
-DROP DEFAULT = Borrar el dato por defecto si lo hay 
+--Borrar el dato por defecto si lo hay 
+DROP DEFAULT
 
 
-Borrar un campo
+--Borrar un campo
 ALTER TABLE nombre_tabla
 DROP campo;
 ```
 
 - ``DROP TABLE nombre_tabla`` Se utiliza para eliminar una tabla
 
-- ``DESC nombre_tabla`` Permite ver la estructura de una tabla 
+- ``DESC nombre_tabla`` Permite ver la estructura de una tabla
+
+## Añadir restricciones a una tabla
+
+```sql
+
+-- Para añadir una restricion simple
+-- De esta forma se pueden añadir una misma restricciones a varios campos de una tabla
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name
+UNIQUE(columna1, columna2);
+
+-- Si quieres añadir un rango de valor para la tabla
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name
+CHECK(condicion);
+
+-- Si quieres añadir una llave primaria 
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name
+PRIMARY KEY(column);
+
+-- Si quieres añadir una llave foránea 
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name
+FOREIGN KEY(column) REFERENCE table_name(column_name);
+
+```
 
 ## Creacion de un indice
 
