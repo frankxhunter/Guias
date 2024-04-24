@@ -64,3 +64,32 @@ Q sería lo puesto a la anterior, osea, todos los caracteres no alfanuméricos
 - /\d/ = Todos los digitos
 - /\D/ = Todos los no dígitos
 
+## Escaped Character 
+
+Como el . es un palabra reservada de Regex, q significa cualquier carácter excepto el salto de linea, no se puede utilizar literalmente.
+Para esto se debe utilizar un Escaped carácter q consta de / más el carácter
+
+- /ab\./ = ab.
+
+- /.+\./ = djfkf_('(€.
+
+También con el propio Slash o backslash:
+
+- /\/http/ = /http
+
+-/\\miPC\\localSpace/ = \miPC\localSpace
+
+## Range
+
+Los rangos son semejantes a las Wildcards, es decir son formas de hacer que coincida con cualquiera de los caracteres deseados, pero la diferencia es q en este caso, tú defines los caracteres q deseas q coincidan. por ejemplo:
+
+-Nota para definir un rango se pone entre corchetes []
+
+- /[Fra]gh/ =
+fgh
+rgh
+agh
+Pero no coincidirá con :
+mgh
+kgh
+xgh
