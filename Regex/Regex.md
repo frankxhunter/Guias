@@ -105,5 +105,33 @@ Pero no coincidirá con:
 ## Range 2
 
 Al igual q pasaba con las Wildcards, podemos usar lo contrario de los valores en el rengo, para esto se usa ''^'', por ejemplo:
-- ''/[^1-3]/'' sería cualquier carácter excepto del 1 al 3
+- ''/[^1-3]/'' sería cualquier carácter excepto del 1 al   
 
+# Grouping 
+Es posible usar paréntesis para agrupar los elementos 
+como por ejemplo:
+
+
+''/regex(es)?/'' = 
+
+**regex**
+**regexes**
+
+''(abc)+'' =
+
+**abc**
+**abcabcabcabcabc** 
+
+También existe el operador or ''|''
+
+''/ab(c|d)?/'' =
+
+ab
+abc
+abd
+
+''/reg(ular expressions|exp?)/'' =
+
+**regular expresions**
+**regex**
+**regexp**
