@@ -93,3 +93,17 @@ Pero no coincidirá con:
 **mgh**
 **kgh**
 **xgh**
+
+**Nota** también podemos usar ''-'' para definir rangos, por ejemplo:
+
+- ''/[0-9]/'' son todos los dígitos equivalente a ''\d''
+
+- ''/[a-z]/'' equivalente a todas las letras en minúscula
+
+- ''/[a-zA-Z0-9_]/'' todos los caracteres alphanumericos o ''\w''
+
+## Range 2
+
+Al igual q pasaba con las Wildcards, podemos usar lo contrario de los valores en el rengo, para esto se usa ''^'', por ejemplo:
+- ''/[^1-3]/'' sería cualquier carácter excepto del 1 al 3
+
