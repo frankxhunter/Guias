@@ -132,6 +132,36 @@ abd
 
 ''/reg(ular expressions|exp?)/'' =
 
-**regular expresions**
-**regex**
-**regexp**
+- **regular expresions**
+- **regex**
+- **regexp**
+
+## Anchors 
+
+Los Anchors se utilizan para definir si el texto con el que vamos a hacer match va al comienzo (''^'') o al final del string (''$'')
+
+1. ''/^success/'' = 
+- success ✅
+- unsuccessful ❌
+
+2. ''/.+\.$/'' 
+
+- sentence ending. ✅
+- the sentence ending? ❌
+
+## Modifiers
+
+Los modificadores sirven para cambiar la naturaleza completa de nuestro patrón regex. Estos se escriben fuera de los ''//'', por ejemplo: 
+
+- ''/abc/i''
+
+El modificador 'i' sirve para hacer el patrón case insensitive:
+
+- abc, Abc, ABC ✅
+
+El modificador ''m'' hace q los anchors ''^'' y ''$'' funcionen al principio y al final de cada linea del string
+'''
+Esto es una línea
+Esto es otra línea
+'''
+
