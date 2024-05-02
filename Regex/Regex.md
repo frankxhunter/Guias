@@ -165,3 +165,10 @@ Esto es una línea
 Esto es otra línea
 '''
 
+## Positive Lookahead
+
+Es un operador que selecciona la coincidencia anterior solo si está se cumple
+- Se hace de la siguiente forma: ``(?=)``
+
+- Por ejemplo: /``(?=.*[A-Z])``/ esto quiere decir que haya al menos una letra mayúscula 
+
