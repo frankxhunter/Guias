@@ -71,7 +71,7 @@ Para esto se debe utilizar un Escaped carácter q consta de ``\`` más el carác
 
 - ``/ab\./`` = **ab.**
 
-- ``/.+\./`` = **djfkf_('(€.**
+- ``/.+\./`` = **djfkf_(`(€.**
 
 También con el propio *Slash* o *backslash*:
 
@@ -94,81 +94,84 @@ Pero no coincidirá con:
 **kgh**
 **xgh**
 
-**Nota** también podemos usar ''-'' para definir rangos, por ejemplo:
+**Nota** también podemos usar ``-`` para definir rangos, por ejemplo:
 
-- ''/[0-9]/'' son todos los dígitos equivalente a ''\d''
+- ``/[0-9]/`` son todos los dígitos equivalente a ``\d``
 
-- ''/[a-z]/'' equivalente a todas las letras en minúscula
+- ``/[a-z]/`` equivalente a todas las letras en minúscula
 
-- ''/[a-zA-Z0-9_]/'' todos los caracteres alphanumericos o ''\w''
+- ``/[a-zA-Z0-9_]/`` todos los caracteres alphanumericos o ``\w``
 
 ## Range 2
 
-Al igual q pasaba con las Wildcards, podemos usar lo contrario de los valores en el rengo, para esto se usa ''^'', por ejemplo:
-- ''/[^1-3]/'' sería cualquier carácter excepto del 1 al   
+Al igual q pasaba con las Wildcards, podemos usar lo contrario de los valores en el rengo, para esto se usa ``^``, por ejemplo:
 
-# Grouping 
-Es posible usar paréntesis para agrupar los elementos 
+- ``/[^1-3]/`` sería cualquier carácter excepto del 1 al
+
+## Grouping
+
+Es posible usar paréntesis para agrupar los elementos
 como por ejemplo:
 
-
-''/regex(es)?/'' = 
+``/regex(es)?/`` =
 
 **regex**
 **regexes**
 
-''(abc)+'' =
+``(abc)+`` =
 
 **abc**
-**abcabcabcabcabc** 
+**abcabcabcabcabc**
 
-También existe el operador or ''|''
+También existe el operador or ``|``
 
-''/ab(c|d)?/'' =
+``/ab(c|d)?/`` =
 
 ab
 abc
 abd
 
-''/reg(ular expressions|exp?)/'' =
+``/reg(ular expressions|exp?)/`` =
 
 - **regular expresions**
 - **regex**
 - **regexp**
 
-## Anchors 
+## Anchors
 
-Los Anchors se utilizan para definir si el texto con el que vamos a hacer match va al comienzo (''^'') o al final del string (''$'')
+Los Anchors se utilizan para definir si el texto con el que vamos a hacer match va al comienzo (``^``) o al final del string (``$``)
 
-1. ''/^success/'' = 
-- success ✅
-- unsuccessful ❌
+1. ``/^success/`` =
 
-2. ''/.+\.$/'' 
+    - success ✅
+    - unsuccessful ❌
 
-- sentence ending. ✅
-- the sentence ending? ❌
+2. ``/.+\.$/`` =
+
+    - sentence ending. ✅
+    - the sentence ending? ❌
 
 ## Modifiers
 
-Los modificadores sirven para cambiar la naturaleza completa de nuestro patrón regex. Estos se escriben fuera de los ''//'', por ejemplo: 
+Los modificadores sirven para cambiar la naturaleza completa de nuestro patrón regex. Estos se escriben fuera de los ``//``, por ejemplo:
 
-- ''/abc/i''
+- ``/abc/i``
 
-El modificador 'i' sirve para hacer el patrón case insensitive:
+El modificador `i` sirve para hacer el patrón case insensitive:
 
 - abc, Abc, ABC ✅
 
-El modificador ''m'' hace q los anchors ''^'' y ''$'' funcionen al principio y al final de cada linea del string
-'''
+El modificador ``m`` hace q los anchors ``^`` y ``$`` funcionen al principio y al final de cada linea del string
+
+```text
 Esto es una línea
 Esto es otra línea
-'''
+```
 
 ## Positive Lookahead
 
 Es un operador que selecciona la coincidencia anterior solo si está se cumple
+
 - Se hace de la siguiente forma: ``(?=)``
 
-- Por ejemplo: /``(?=.*[A-Z])``/ esto quiere decir que haya al menos una letra mayúscula 
-
+- Por ejemplo: /``(?=.*[A-Z])``/ esto quiere decir que haya al menos una letra mayúscula
