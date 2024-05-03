@@ -175,3 +175,10 @@ Es un operador que selecciona la coincidencia anterior solo si está se cumple
 - Se hace de la siguiente forma: ``(?=)``
 
 - Por ejemplo: /``(?=.*[A-Z])``/ esto quiere decir que haya al menos una letra mayúscula
+
+## Negative lookahead
+
+Es un operador que indica un elemento que no debe encontrase dentro del patron
+
+- Ejemplo:
+    ``/(?!.*[a-z]/`` = Este indica que no deben haber letras minusculas en el patron
