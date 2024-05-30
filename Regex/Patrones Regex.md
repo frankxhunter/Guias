@@ -15,3 +15,7 @@
 ## Para tags HTML como div
 
 ``/<div[^>]*>.*<\/div>/ ``
+
+## Para usernames
+
+``/^\w[\w.]{0,28}\w$/``
