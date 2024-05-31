@@ -5,7 +5,9 @@
 
 Para disponer debe de TS debes ejecutar el siguiente comando
 
-``npm install -g typescript``
+```sh
+npm install -g typescript
+```
 
 **Nota**: los archivos typescript won aquellos con extension .ts
 
@@ -19,4 +21,26 @@ Debido a que typescript es un super set de JavaScript para hacer esta transforma
 
 Para hacer esto es necesario usar el compilador de TS usando el siguiente comando:
 
-``tsc archivo.ts``
+```sh
+tsc archivo.ts
+```
+
+## Como ejecutar código TS
+
+```ts
+// archivo.ts
+function hello(name: string) {
+  console.log(`Hello ${name}!`);
+}
+
+hello("Andrei");
+```
+
+Para ejecutar TS se utiliza el comando 
+
+```sh
+ts-node archivo.ts
+```
+
+Internamente este comando lo que hace es convertir el archivo a .js y luego lo ejecuta con Node
+
