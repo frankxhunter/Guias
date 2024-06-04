@@ -106,7 +106,7 @@ Pero no coincidirá con:
 
 Al igual q pasaba con las Wildcards, podemos usar lo contrario de los valores en el rengo, para esto se usa ``^``, por ejemplo:
 
-- ``/[^1-3]/`` sería cualquier carácter excepto del 1 al 3 
+- ``/[^1-3]/`` sería cualquier carácter excepto del 1 al 3  
 
 ## Grouping
 
@@ -182,3 +182,7 @@ Es un operador que indica un elemento que no debe encontrase dentro del patron
 
 - Ejemplo:
     ``/(?!.*[a-z]/`` = Este indica que no deben haber letras minusculas en el patron
+
+## Non-capturing group
+
+Es un operador que hace que el grupo seleccionado no se guarde en los registros de grupos por tanto no pueda ser extraido

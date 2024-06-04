@@ -14,7 +14,7 @@
 
 ## Para tags HTML como div
 
-``/<div[^>]*>.*<\/div>/ ``
+``/<div[^>]*>.*<\/div>/``
 
 ## Para usernames
 

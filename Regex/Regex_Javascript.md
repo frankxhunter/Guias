@@ -1,6 +1,6 @@
 # Regex con JavaScript
 
-En JavaScript existe el objeto RegExp, por tanto hay dos formas de crear un regexp 
+En JavaScript existe el objeto RegExp, por tanto hay dos formas de crear un regexp  
 
 ```js
 let pattern = /abc/;
@@ -22,7 +22,7 @@ Veamos métodos y usos prácticos de RegExp
 
 ### Search
 
-El método search() permite encontrar la posición donde hay una coincidencia 
+El método search() permite encontrar la posición donde hay una coincidencia  
 
 ```js
 let string = "learning about JS and regex";
@@ -33,7 +33,7 @@ string.search(/regex/);
 
 ### Replace
 
-El método replace() permite remplazar una coincidencia en la cadena por un texto dado 
+El método replace() permite remplazar una coincidencia en la cadena por un texto dado
 
 ```js
 let string = "Visit Google!";
@@ -44,7 +44,7 @@ string.replace(/google/i, "Enki");
 
 ### Test
 
-El método test() es un método especial del objeto RegExp q permite probar si hay una coincidencia del RegExp en el texto dado, por tanto se utiliza para validar 
+El método test() es un método especial del objeto RegExp q permite probar si hay una coincidencia del RegExp en el texto dado, por tanto se utiliza para validar
 
 ```js
 let regex = /e/;
