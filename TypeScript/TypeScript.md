@@ -1,5 +1,6 @@
-#TypeScript
- Typescript es un super set de JavaScript que añade tipos opcionales, es decir con typescript puedes hacer todo lo q normalmente harías con JavaScript y además añadir tipos a tus variables para ser más estricto 
+# TypeScript
+
+ Typescript es un super set de JavaScript que añade tipos opcionales, es decir con typescript puedes hacer todo lo q normalmente harías con JavaScript y además añadir tipos a tus variables para ser más estricto
 
 ## Primeros pasos
 
@@ -36,7 +37,7 @@ function hello(name: string) {
 hello("Andrei");
 ```
 
-Para ejecutar TS se utiliza el comando 
+Para ejecutar TS se utiliza el comando
 
 ```sh
 ts-node archivo.ts
@@ -57,12 +58,12 @@ brand = `Enki`;
 Los tipos básicos más usados son:
 
 - number
-- string 
+- string
 - boolean
 
 ## Los tipos en las funciones
 
-Typescript nos permite definir los tipos de parámetros de una función 
+Typescript nos permite definir los tipos de parámetros de una función
 
 ```ts
 function hello(name: string) {
@@ -78,9 +79,9 @@ hello(123);
 
 ```
 
-También se lanzará un error si se envían el número incorrecto de parámetros 
+También se lanzará un error si se envían el número incorrecto de parámetros
 
-```ts 
+```ts
 function hello(
   name: string,
   emoji: string
@@ -94,7 +95,7 @@ hello("Enki");
 // error: Expected 2 arguments, but got 1.
 ```
 
-También es posible definir el tipo de retorno de una función 
+También es posible definir el tipo de retorno de una función
 
 ```ts
 function hello(name: string): string {
@@ -107,9 +108,10 @@ const greeting = hello("Enki");
 console.log(greeting);
 // "Hello Enki!"
 ```
+
 Esto nos protege también de retornar el tipo incorrecto
 
-```ts 
+```ts
 function hello(name: string): string {
   return 123;
   // error: Type '123' is not assignable to type 'string'
@@ -151,7 +153,5 @@ hello("Enki", "👋");
 hello("Enki");
 // "Enki 💚!"
 ```
+
 *Nota*: cuando usamos parámetros por defecto o es necesario el "?" ya q automáticamente este se vuelve un parámetro por defecto
-
-
-
