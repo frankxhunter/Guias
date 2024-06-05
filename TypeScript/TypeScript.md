@@ -155,3 +155,29 @@ hello("Enki");
 ```
 
 *Nota*: cuando usamos parámetros por defecto o es necesario el "?" ya q automáticamente este se vuelve un parámetro por defecto
+
+## Any, Void, Null, Undefined
+
+### Any
+ En caso de que no sepas el tipo de datos de una variable puede usar "any":
+
+```ts
+let anythingReally: any = 1;
+anythingReally = "one";
+anythingReally = [true, false];
+```
+
+### Void
+
+Para especificar que la función no retorna nada
+
+```ts
+function enki(): void {
+  return "enki";
+  // error: Type '"enki"' is not assignable to type 'void'
+}
+```
+
+### Null y Undefined 
+
+Representan la falta de valor y cada uno tiene su tipo propio
