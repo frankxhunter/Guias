@@ -181,3 +181,89 @@ function enki(): void {
 ### Null y Undefined 
 
 Representan la falta de valor y cada uno tiene su tipo propio
+
+```ts
+let zilch: undefined = undefined;
+let isEqualToNull: null = null;
+```
+
+## Array y Tupple
+
+### Array
+
+Hay dos formas de definir un array en typescript
+
+```ts
+// by putting the [] after the type
+// here we define an array of numbers
+let primes: number[] = [2, 3, 5, 7];
+
+// or by wrapping the type in the Array type
+// here we define an array of strings
+let powerRangerColors: Array<string> = [
+  "red",
+  "black",
+  "yellow",
+  "blue",
+  "pink",
+];
+
+let nums: number[] = [1, 2, 3];
+nums.push("enki");
+// error: Argument of type '"enki"' is not assignable to parameter of type 'number'
+
+// all valid
+let nums: number[] = [];
+let words: string[] = [];
+let bools: boolean[] = [];
+// ...
+```
+
+### Tuple
+
+Una tupla es como array pero solo puede contener el número de elementos indicados, con el tipo de elemento indicado en cada posición
+
+```ts
+// numAndBoolTuple has a number at the first position
+// and a boolean at the second position
+let numAndBoolTuple: [number, boolean] = [
+  1,
+  true
+];
+
+/*The order of the types must be exact:*/
+
+// this is an error because we're storing
+// the types in the wrong order
+let numAndBoolTuple: [number, boolean] = [
+  true, // error: Type 'true' is not assignable to type 'number'
+  1, // error: Type 'number' is not assignable to type 'boolean'
+];
+```
+
+Las tuplas y los arrays se pueden combinar para obtener un "Map":
+
+```ts
+// powerRangers is an array of tuples
+// where each tuple is a string pair
+// representing the color and name
+// of each power ranger
+const powerRangers: Array<
+  [string, string] // <-- tuple
+> = [
+  ["red", "Jason"],
+  ["black", "Zach"],
+  ["yellow", "Trini"],
+  ["blue", "Billy"],
+  ["pink", "Kimberly"],
+];
+
+// create a map out of an array of tuples
+const powerRangersMap = new Map(
+  powerRangers
+);
+
+console.log(
+  powerRangersMap.get("blue") // "Billy"
+);
+```
