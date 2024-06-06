@@ -268,3 +268,111 @@ console.log(
   powerRangersMap.get("blue") // "Billy"
 );
 ```
+## Objetos en typescript 
+
+Existen 3 formas de crear objetos en typescript:
+
+*Nota*: Un objeto es una colección de pares llaves e informacion
+```ts
+// Forma 1. {}
+let empty: {} = {};
+
+const Enki: {
+  job: string;
+  isFun: boolean;
+} = {
+  job: "teach",
+  isFun: true,
+};
+
+empty.name = "oops";
+// error: Property 'name' does not exist on type '{}'
+Enki.age = 5;
+// error: Property 'age' does not exist on type '{ job: string; isFun: boolean; }'
+
+///////////////////////////////////////////////////////
+
+// Forma 2. object
+
+// an object is an "object"
+let obj: object = { enki: true };
+// an array is an "object"
+let arr: object = [1, 2, 3];
+// a map is an "object"
+let map: object = new Map([
+  ["enki", "cool"]
+]);
+// ...
+// primitive values aren't an "object"
+let str: object = "enki"; // error
+let num: object = 3; // error
+let n: object = null; // error
+let u: object = undefined; // error
+
+///////////////////////////////////////////////////////
+
+// Forma 3. Object
+
+// Este causa mas confusion por puede ser cualquier cosa que contenga un valor
+
+
+// almost anything is an "Object"
+let num: Object = 3;
+let bool: Object = false;
+let str: Object = "enki";
+let arr: Object = [1, 2, 3];
+// ...
+// only null and undefined
+// give an error
+let n: Object = null; // error
+let u: Object = undefined; // error
+```
+
+## Enum
+
+Los enum representan valores fijos o constantes
+
+```ts
+// numerical enum
+enum GameLevel {
+  A = 1,
+  B = 2,
+  C = 3,
+}
+
+let firstLevel: GameLevel = GameLevel.A;
+
+console.log(firstLevel);
+// 1
+```
+
+## Type aliases
+
+Esto tipos se utilsan como alias de otros tipos
+
+```ts 
+// alias string type as Language
+type Language = string;
+
+// alias boolean type as Fun
+type Fun = boolean;
+
+// now we can use the aliases
+let lang: Language = "TypeScript";
+let fun: Fun = true;
+
+type NameAndFactTuple = [
+  string,
+  string
+];
+
+let enki: NameAndFactTuple = [
+  "Enki",
+  "Is a friendly learning coach",
+];
+
+let morgan: NameAndFactTuple = [
+  "Morgan Freeman",
+  "Should narrate my life",
+];
+```
