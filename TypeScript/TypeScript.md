@@ -159,6 +159,7 @@ hello("Enki");
 ## Any, Void, Null, Undefined
 
 ### Any
+
  En caso de que no sepas el tipo de datos de una variable puede usar "any":
 
 ```ts
@@ -178,7 +179,7 @@ function enki(): void {
 }
 ```
 
-### Null y Undefined 
+### Null y Undefined
 
 Representan la falta de valor y cada uno tiene su tipo propio
 
