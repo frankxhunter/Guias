@@ -65,14 +65,48 @@ Imágenes: Las imágenes se insertan utilizando un formato similar al de los enl
 
 Para resaltar bloques de código, se puede utilizar triple comillas invertidas (```) al principio y al final del bloque de código.
 
-## Como crear avisos especiales
+## Avisos de sintaxis especial
 
-### Notas
 
 > [!NOTE]
 > Esto es una nota q resalta visualmente
-
 ```md
 > [!NOTE]
 > Esto es una nota q resalta visualmente
 ```
+
+> [!TIP]
+> Esto es un tip o una ayuda al lector
+```md
+> [!TIP]
+> Esto es un tip o una ayuda al lector
+```
+
+> [!TIP]
+> Esto es un tip o una ayuda al lector
+```md
+> [!TIP]
+> Esto es un tip o una ayuda al lector
+```
+
+> [!WARNING]
+> Esto es un aviso que debes leer
+```md
+> [!WARNING]
+> Esto es un aviso que debes leer
+```
+
+> [!CAUTION]
+> Cuidado!! esto es importante
+```md
+> [!CAUTION]
+> Cuidado!! esto es importante
+```
+
+> [!IMPORTANT]
+> Ojo con esto, que es muy importante
+```md
+> [!IMPORTANT]
+> Ojo con esto, que es muy importante
+```
+
