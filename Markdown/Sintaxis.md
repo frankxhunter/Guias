@@ -82,13 +82,6 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 > Esto es un tip o una ayuda al lector
 ```
 
-> [!TIP]
-> Esto es un tip o una ayuda al lector
-```md
-> [!TIP]
-> Esto es un tip o una ayuda al lector
-```
-
 > [!WARNING]
 > Esto es un aviso que debes leer
 ```md
