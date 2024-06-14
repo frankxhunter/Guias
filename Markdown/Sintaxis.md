@@ -69,10 +69,10 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 
 ### Notas
 
-> [!NOTA]
+> [!NOTE]
 > Esto es una nota q resalta visualmente
 
 ```md
-> [!Nota]
+> [!NOTE]
 > Esto es una nota q resalta visualmente
 ```
