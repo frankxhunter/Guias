@@ -268,11 +268,13 @@ console.log(
   powerRangersMap.get("blue") // "Billy"
 );
 ```
-## Objetos en typescript 
+
+## Objetos en typescript
 
 Existen 3 formas de crear objetos en typescript:
 
 *Nota*: Un objeto es una colección de pares llaves e informacion
+
 ```ts
 // Forma 1. {}
 let empty: {} = {};
@@ -350,7 +352,7 @@ console.log(firstLevel);
 
 Esto tipos se utilsan como alias de otros tipos
 
-```ts 
+```ts
 // alias string type as Language
 type Language = string;
 

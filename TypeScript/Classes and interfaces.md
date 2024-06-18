@@ -2,9 +2,9 @@
 
 ## Clases
 
-Las clases representan las programación orientada a objetos. Para crear una clase se utiliza la keyword "class" y para crear una instancia se utiliza "new" 
+Las clases representan las programación orientada a objetos. Para crear una clase se utiliza la keyword "class" y para crear una instancia se utiliza "new"
 
-```ts 
+```ts
 // define an Animal
 class Animal {
   // data for all Animals
@@ -32,7 +32,7 @@ let zebra = new Animal("zebra");
 zebra.sayHi(); // "Hi, I'm an animal called zebra"
 ```
 
-## Interfaces 
+## Interfaces
 
 Las Interfaces se utilizan para definir un forma a las objetos, es decir, un esquema el cual deben cumplir. Como las clases, las Interfaces solo existen para propósitos de revisado de tipado
 
@@ -79,11 +79,11 @@ payment.value = 0;
 // error: Cannot assign to 'value' because it is a read-only property.
 ```
 
-Nota*: Deben darse cuenta que en este caso la interfaz no se está utilizando de la misma manera que lo haría en Java. Está forma la veremos a continuación 
+Nota*: Deben darse cuenta que en este caso la interfaz no se está utilizando de la misma manera que lo haría en Java. Está forma la veremos a continuación
 
 ## Implementación de Interfaces en clases
 
-La Interfaces tambien se utilizan para dar un esquema a las clases 
+La Interfaces tambien se utilizan para dar un esquema a las clases
 
 ```ts
 interface Flyer {
