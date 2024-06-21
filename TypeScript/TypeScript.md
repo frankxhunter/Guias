@@ -283,6 +283,9 @@ let bools: boolean[] = [];
 // ...
 ```
 
+> [!DANGER]
+> Un array vacio sin especificar el tipo se considerara como de type never
+
 ### Tuple
 
 Una tupla es como array pero solo puede contener el número de elementos indicados, con el tipo de elemento indicado en cada posición
@@ -431,6 +434,34 @@ let firstLevel: GameLevel = GameLevel.A;
 
 console.log(firstLevel);
 // 1
+
+// Otra forma de enum es con el operador OR aplicable en los type
+
+  type Raza = "chino" | "blanco" | "negro"
+
+  let persona: Raza = "chino";
+
+  // Esto tambien es aplicable a los tipos de datos
+  // Conocido como union de tipos o UNION TYPE
+
+  let valor: string | number ;
+
+  valor = "hola"
+  valor = 123;
+  // ❌ 
+  valor = false;
+
+
+  // tambien pueden ser valores especificos
+
+  let valores : "Hola"| 2
+  valores = "Hola"
+  valores = 2
+
+  // ❌ 
+  valores = 3
+  valores = "aDIOS"
+
 ```
 
 ## Type aliases
@@ -511,4 +542,63 @@ type Hero = {
   // ❌ El id no se puede modificar
   //hero.id = 2;
   console.log(thor.id)
+```
+
+### Type interceptions
+
+Las interceptiones de tipos permiten usar combinaciones de varios tipos
+
+```ts
+  // Interception Types   
+  type HeroId= `${string}-${string}-${string}-${string}-${string}`
+  type HeroPropierties = {
+    readonly id: HeroId
+    superpower?: string,
+  }
+
+  type HeroBasicInfo = {
+    name: string, 
+    age: number,
+    superPower?: string;
+  }
+  // Se interceptan dos tipo para crear el tipo final 
+  type Hero = HeroPropierties & HeroBasicInfo;
+
+  function createHero(input: HeroBasicInfo): Hero{
+    const {name, age, superPower} = input;
+    const id = crypto.randomUUID();
+    return {id: id, name: name, age: age, superPower: superPower};
+  }
+  const thor: Hero = createHero({name:"thor", age:22, superPower:"its rich"})
+```
+
+### Indexing Types
+
+Esto permite utilizar partes de tipos que tengas para defenir otros tipos
+
+```ts
+
+
+  type Hero = {
+    name: string,
+    age: number,
+    address : {
+      planet: string,
+      city: string
+    }
+  }
+
+  // Aqui solo uso una parte del Hero
+  type miniHero = Hero["address"]
+  
+  const batman: miniHero = {
+    planet: "eart",
+    city: "New York",
+
+    // ❌
+    name: "batman"
+  }
+  // En TS el operador typeOf  tiene mas funcionalidad
+  type pequehero = typeof batman;
+
 ```
