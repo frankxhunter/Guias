@@ -283,7 +283,7 @@ let bools: boolean[] = [];
 // ...
 ```
 
-> [!DANGER]
+> [!CAUTION]
 > Un array vacio sin especificar el tipo se considerara como de type never
 
 ### Tuple
