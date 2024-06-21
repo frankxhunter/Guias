@@ -39,4 +39,3 @@ docker <OBJECT> inspect <ID_OR_NAME>
 # remove all unused objects
 docker <OBJECT> prune
 ```
-

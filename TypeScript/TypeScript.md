@@ -16,7 +16,7 @@ npm install -g typescript
 
 ### De JS a TS
 
-Debido a que typescript es un super set de JavaScript para hacer esta transformación bastará con cambiar la extensión del archivo de .ja a .TS
+Debido a que typescript es un super set de JavaScript para hacer esta transformación bastará con cambiar la extensión del archivo de .js a .ts
 
 ### De TS a JS
 
@@ -118,6 +118,55 @@ function hello(name: string): string {
 }
 ```
 
+### Como pasar una funcion por parametros
+
+```ts
+
+// ❌ Esta forma es incorrecta ya que admitira cualquier tipo de funcion 
+const sayHiFromFunction= (hi) =>{
+    return hi("hola");
+}
+
+function hi (hola: string){
+    console.log(hola.toUpperCase());
+}
+
+sayHiFromFunction(hi) 
+
+// ✔ En esta forma se indica los parametros de la funcion a recibir evitando errores de es forma
+
+const sayHiFromFunction2= (hi2: (hola: string)=> void) =>{
+    return hi("hola");
+}
+
+function hi2 (hola: string){
+    console.log(hola.toUpperCase());
+}
+// ✔ Se llama una funcion que cumple con las condiciones
+sayHiFromFunction2(hi2) 
+
+// ❌ Esta funcion no cumple las condiciones por tanto se marcara un error 
+sayHiFromFunction2(Math.random())
+```
+
+### Arrow Functions
+
+Esta son las dos formas poner tipado a las funciones flecha
+
+```ts
+// Formas de tipar las arrow functions
+
+// 1
+const add = (a: number, b: number) => {
+    return a + b
+}
+
+// 2 
+const sub: (a: number, b: number)=> number = (a, b)=>{
+    return a-b;
+}
+```
+
 ## Protección de funciones
 
 Por defecto todos los para.etros de las funciones son requiridos u obligatorios
@@ -156,7 +205,7 @@ hello("Enki");
 
 *Nota*: cuando usamos parámetros por defecto o es necesario el "?" ya q automáticamente este se vuelve un parámetro por defecto
 
-## Any, Void, Null, Undefined
+## Any, Void, Null, Undefined, never
 
 ### Any
 
@@ -186,6 +235,20 @@ Representan la falta de valor y cada uno tiene su tipo propio
 ```ts
 let zilch: undefined = undefined;
 let isEqualToNull: null = null;
+```
+
+### Never
+
+El "never" se utiliza principalmente para las funciones donde se indica que una funcion nunca va a retornar nada
+
+- El caso mas utilizado es para las funciones que lanzan error
+
+- En la mayoria de caso no es de vital importancia su uso
+
+```ts
+function error(message: string): never{
+  throw new Error(message);
+}
 ```
 
 ## Array y Tupple
@@ -330,6 +393,28 @@ let n: Object = null; // error
 let u: Object = undefined; // error
 ```
 
+### Como pasar objetos por parametros
+
+```ts
+// ❌ Esta forma es incorrecta pq esto en js es un renombramiento
+function saludar({name: string , age: number}){
+  console.log(`El nombre es ${name} y la edad es ${edad}`)
+}
+
+// 👀 exiten otras formas de hacer esto 
+
+// ✔ 1ra forma de marcar los tipos
+function saludar({name , age}: {name: string, age: number}){
+  console.log(`El nombre es ${name} y la edad es ${edad}`)
+}
+// ✔ 2da forma de marcar los tipos
+function saludar(persona {name: string, age:number}){
+  const {name, age} = persona;
+  console.log(`El nombre es ${name} y la edad es ${edad}`)
+}
+
+```
+
 ## Enum
 
 Los enum representan valores fijos o constantes
@@ -350,7 +435,7 @@ console.log(firstLevel);
 
 ## Type aliases
 
-Esto tipos se utilsan como alias de otros tipos
+Esto tipos se utilzan como alias de otros tipos
 
 ```ts
 // alias string type as Language
@@ -377,4 +462,53 @@ let morgan: NameAndFactTuple = [
   "Morgan Freeman",
   "Should narrate my life",
 ];
+
+
+```
+
+### Alias con objetos
+
+```ts
+// Types for objects
+
+type Hero = {
+    name: string, 
+    age: number,
+    superpower?: string,
+  }
+  
+  const batman: Hero= {
+    name: "batman",
+    age: 22,
+  }
+
+
+  function hiHero(hero: Hero): string{
+      const superpower = hero.superpower?.trim
+      //--------------------------------? esto detecta que la propiedad es opcional y por tanto 
+      // no lo ejecuta si la propiedad no existe
+    return `Hola soy ${hero.name} tengo ${hero.age} años 
+    ${superpower ? "y mi super poder es " + superpower: ""}`
+  }
+
+  // Como mantener el encapsulamiento de los alias y usar alias anidados
+
+// Usar alias anidados
+  type HeroId= `${string}-${string}-${string}-${string}-${string}`
+  type Hero2 = {
+    // Mantener el encapsulamiento de los alias
+    readonly id: HeroId
+    name: string, 
+    age: number,
+    superpower?: string,
+  }
+
+  function createHero(name: string, age: number, superpower?: string): Hero2{
+    const id = crypto.randomUUID();
+    return {id: id, name: name, age: age, superpower: superpower};
+  }
+  const thor: Hero2 = createHero("thor", 22, "its rich")
+  // ❌ El id no se puede modificar
+  //hero.id = 2;
+  console.log(thor.id)
 ```
