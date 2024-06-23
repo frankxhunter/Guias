@@ -286,6 +286,18 @@ let bools: boolean[] = [];
 > [!CAUTION]
 > Un array vacio sin especificar el tipo se considerara como de type never
 
+Como definir un array con varios tipos
+
+```ts
+const languajes: (string | number)[] = []
+
+languajes.push("Spanish")
+languajes.push(3)
+
+//❌
+languajes.push(true)
+```
+
 ### Tuple
 
 Una tupla es como array pero solo puede contener el número de elementos indicados, con el tipo de elemento indicado en cada posición
@@ -308,7 +320,8 @@ let numAndBoolTuple: [number, boolean] = [
 ];
 ```
 
-Las tuplas y los arrays se pueden combinar para obtener un "Map":
+>[!TIP]
+>Las tuplas y los arrays se pueden combinar para obtener un "Map":
 
 ```ts
 // powerRangers is an array of tuples
@@ -423,6 +436,19 @@ function saludar(persona {name: string, age:number}){
 Los enum representan valores fijos o constantes
 
 ```ts
+  enum DAY{
+    MONDAY,
+    THUESDAY,
+    WEDNESDAY,
+    THURDAY,
+    FRIDAY,
+    SATURDAY, 
+    SUNDAY
+  }
+  
+  const lunes = DAY.MONDAY;
+
+
 // numerical enum
 enum GameLevel {
   A = 1,
@@ -600,5 +626,148 @@ Esto permite utilizar partes de tipos que tengas para defenir otros tipos
   }
   // En TS el operador typeOf  tiene mas funcionalidad
   type pequehero = typeof batman;
+
+```
+
+### Aserciones de Tipos
+
+Una asercion de tipo consiste en decirle al compilador que tipo de dato es el que va a recibir
+
+```ts
+//-----------------------------------------------Aqui se usa la asercion
+const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
+canvas.getContext("2d")
+```
+
+>[!NOTE]
+> Esta no es la forma correcta de utilizar un elemento del html ya que puede tener errores de validacion
+
+```ts
+// Forma correcta 
+const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
+if(canvas != null && canvas instanceof HTMLCanvasElement){
+    canvas.getContext("2d")
+}
+```
+
+#### Ejemplo de como hacer fetch en TS usando aserciones
+
+>[!NOTE]
+> Para hacer await en un TS el archivo tiene que usar Commonjs Exports o cambiar el tipo de fichero de .ts a .mts
+
+```ts
+// file.mts
+
+
+
+const API_URL =  "https://api.github.com/search/repositories?q=javascript"
+
+// Para obtener la respuesta de la api tipada de debe crear los tipos usando la pagina QuickType con la respuesta
+// type GitHubResponse = respuesta obtenida de QuickType
+
+const response = await fetch(API_URL);  
+
+if(!response.ok){
+    throw new Error("Request failed")
+}
+
+const data = await response.json() as GitHubResponse
+
+const result = data.items.map((repo)=>{
+    return {
+        name: repo.name,
+        id: repo.id,
+        url: repo.url
+    }
+})
+
+console.log(result);
+```
+
+## 3 en Raya
+
+A continuacion un pequeño ejemplo uso de Types, array y Tuplas
+
+```ts
+// Ejemplo de array con el 3 en rayas
+
+// Paso 1: Definir los valores en que pueden ir en cada posicion
+type Cellvalue = "" | "X" | "O";
+
+// Paso 2: Definir la estructura de el tablero de juego en Tuplas
+type GameBoard = [
+    [Cellvalue, Cellvalue, Cellvalue],
+    [Cellvalue, Cellvalue, Cellvalue],
+    [Cellvalue, Cellvalue, Cellvalue],
+]
+
+// Paso 3: Crear tu 3 en raya
+const gameBoard: GameBoard = [
+    ["O", "X", "O"],
+    ["O", "", "O"],
+    ["O", "X", "O"]
+]
+```
+
+## Narrowing
+
+Es un concepto que consiste en cuando puede recibir dos tipos de datos y vas a usar una propiedad que solo tiene uno de esos datos
+
+La solucion se basa en validar lo que recibes
+
+```ts
+function saludar(word: string| number): void{
+     word.length //❌ puede ser string o number, y number no tiene esta propiedad
+    if(typeof word == "string"){
+        console.log(word.length); 
+    }
+    else{
+        console.log(word);
+    }
+}
+```
+
+Ejemplo mas complejo de narrowing utilizando types y interfaces
+
+```ts
+interface Mario{
+    name: string,
+    saltar: ()=> void
+}
+
+interface Sonic{
+    name: string,
+    correr: ()=> void
+}
+
+type Character = Mario | Sonic
+
+function play(character: Character){
+   // character.correr(); // ❌ No sabemos si es mario o Sonic
+
+   // Para validar que tipo de personaje seria, debemos usar un type Guard
+    if(checkIsSonic(character)){
+        character.correr();
+    }
+    else if (checkIsMario(character)){
+        character.saltar();
+    }
+    else{
+        // Ejemplo de un never
+        character
+    }
+}
+
+// Type Guard - validar que el personaje tenga las propiedades que queremos
+function checkIsSonic(character: Character): character is Sonic{
+    // Comprobar la propiedad discriminadora de sonic
+    return (character as Sonic).correr !== undefined;
+}
+function checkIsMario(character: Character): character is Mario{
+    // Comprobar la propiedad discriminadora de sonic
+    return (character as Mario).saltar !== undefined;
+}
 
 ```

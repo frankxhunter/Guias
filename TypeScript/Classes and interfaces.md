@@ -7,36 +7,53 @@ Las clases representan las programación orientada a objetos. Para crear una cla
 ```ts
 // define an Animal
 class Animal {
-  // data for all Animals
-  name: string;
-  kind: string = "animal";
-  //           ^^^^^^^^^^ default value
+    // data for all Animals
+    readonly name: string;// readonly -> no se puede modificar una vez establecido 
 
-  // function that runs on instantiation
-  constructor(animalName: string) {
-    this.name = animalName;
+    #kind: string = "animal"; // el character '#' significa que la propiedad es privada, debe usarse el caracter dentro la clase para referirse a la propiedad, esto es nativo de javascript
+    //           ^^^^^^^^^^ default value
+    private id = crypto.randomUUID() // private hace la propiedad private pero esto es por typescript, por tanto no funciona en runTime 
+
+    protected colors: string[]= []; // Proteted es que solo puede usarse en la propia clase y en clases hijas
+    
+    // function that runs on instantiation
+    constructor(animalName: string) {
+      this.name = animalName;
+    }
+  
+    // function that belongs to every Animal
+    sayHi(): void {
+      console.log(
+        `Hi, I'm an ${this.#kind} called ${this.name}`
+      );
+    }
+
+    getId(): string{
+        return this.id;
+    }
+    addColor(color: string){
+        this.colors.push[color]
+    }
   }
 
-  // function that belongs to every Animal
-  sayHi() {
-    console.log(
-      `Hi, I'm an ${this.kind} called ${this.name}`
-    );
-  }
-}
+const zebra: Animal = new Animal("zebra")
 
-// create (instantiate) an Animal
-// Note that we're only passing in the "name" as "zebra"
-// the "kind" has a default value of "animal"
-let zebra = new Animal("zebra");
-zebra.sayHi(); // "Hi, I'm an animal called zebra"
+//zebra.name = "Vaca" // ❌ Esta propiedad es de solo lectura
+//console.log(zebra.kind); // ❌ Esta propiedad es privada 
+//console.log(zebra.id); // ❌ Esta propiedad es privada 
+console.log(zebra.getId()); // ✔ Se puede ver la propiedad con un getter 
+//zebra.colors.push("negro")    // ❌ Esta propiedad es protected y solo puede accederse desde una clase hija
+zebra.addColor('negro')// ✔ Se puede acceder a la propiedad a traves de un setter o similar 
+zebra.addColor('blanco')
+
 ```
 
 ## Interfaces
 
 Las Interfaces se utilizan para definir un forma a las objetos, es decir, un esquema el cual deben cumplir. Como las clases, las Interfaces solo existen para propósitos de revisado de tipado
 
-*Nota*: Deben darse cuenta que en este caso la interfaz no se utiliza de la misma manera que lo harí
+>[!TIP]
+> Deben darse cuenta que en este caso la interfaz no se utiliza de la misma manera que lo haría en JAVA, en el 90% de los casos es sustituibles por los types
 
 ```ts
 // define what the shape of
@@ -79,7 +96,61 @@ payment.value = 0;
 // error: Cannot assign to 'value' because it is a read-only property.
 ```
 
-Nota*: Deben darse cuenta que en este caso la interfaz no se está utilizando de la misma manera que lo haría en Java. Está forma la veremos a continuación
+>[!IMPORTANT]
+> La princiapal diferencia entre las interfaces y los types es que las intefaces permiten las herencia de otras interfaces
+
+```ts
+
+interface Producto {
+    id: string
+    name: string,
+    precio: number
+}
+
+interface Zapatos extends Producto{
+    talla: number
+}
+
+interface CarritoDeCompras{ 
+    totalPrice: (productos: (Producto | Zapatos)[])=>number
+    productos : (Producto | Zapatos)[],
+
+}
+
+const miCarrito: CarritoDeCompras= {
+    totalPrice: (productos)=>{
+        let total = 0;
+        productos.forEach(element => {
+            total+=element.precio;
+        });
+        return total
+    },  
+    productos: [
+        {
+            id: "234",
+            name: "Lapto",
+            precio: 23,
+        },
+        {
+            id: "234",
+            name: "Zapatos Adidas",
+            precio: 223,
+            talla: 43,
+        }
+    ]
+}
+
+```
+
+>[!NOTE]
+> Las interfaces se pueden extender automaticamente con crear otra interfaz que tenga el mismo nombre, pero si se repite algun atributo, sera detectado como un error, tambien se debe tener cuidado de no hacerlo sin querer
+
+### Cuando usar interfaces o types
+
+A diferencia de las **interfaces** los **types** tambien se pueden usar para definir tipos primitivos con string o number, por eso para los objetos es mejor usar **interfaces** mientras que para cosas mas cercanas a los tipos primitivos es mejor usar **types**
+
+>[!TIP]
+>Siempre que pueda ser posible es recomendable usar types, las interfaces tratar de usarlas en las clases o en objetos muy grandes
 
 ## Implementación de Interfaces en clases
 
