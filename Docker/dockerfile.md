@@ -48,6 +48,8 @@ Para construir la imagen de docker debemos correr el siguiente comando donde eje
 
 ## Describiendo los comandos del dockerfile
 
+### FROM
+
 Todo dockerfile debe comenzar con la instrucción "FROM" solo precedida de uno mas argumentos q representan argumentos de compilación pasados externamente
  El "FROM" indica la imagen base a partir de la cual se debe crear la imagen de docker, como por ejemplo "node" o "ubuntu" 
 Ejemplo de un java con jdk instalado
@@ -55,4 +57,25 @@ Ejemplo de un java con jdk instalado
 
 ```
 FROM openjdk:17-jdk-slim
+```
+
+### CMD
+Todo docker file debe contener un comando 'CMD' o un 'EMTRYPOINT' indicando el comando de inicio de la imagen
+
+El comando CMD indica el comando q se ejecutará para iniciar la imagen, a diferencia del comando 'RUN' q indica como construir la imagen, este indica como ejecutar la imagen 
+
+```sh
+CMD "echo" "Hello, World!"
+```
+
+### ENTRYPOINT
+
+Define el comando de ejecución principal de la imagen, a diferencia de 'CMD' este es más estricto y no puede ser sobrescrito, definiendo así el comando principal de ejecución, si el usuario pasa un comando adicional se le agregará como argumentos 
+
+```sh
+ENTRYPOINT "python app.py"
+
+# Combinado con CMD
+ENTRYPOINT ["python"]
+CMD ["app.py"]
 ```
