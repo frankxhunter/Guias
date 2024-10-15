@@ -43,20 +43,19 @@ Para construir la imagen de docker debemos correr el siguiente comando donde eje
 ```docker build enki```
 
 > [!NOTE]
-> Debemos correr este comando estando en la ubicación donde se encuentra el docker file, en parámetro "enki" corresponde al nombre de la imagen
+> Debemos correr este comando estando en la ubicación donde se encuentra el docker file, en parámetro ``enki`` corresponde al nombre de la imagen
 
 
 ## Describiendo los comandos del dockerfile
 
-### FROM
-
-Todo dockerfile debe comenzar con la instrucción "FROM" solo precedida de uno mas argumentos q representan argumentos de compilación pasados externamente
- El "FROM" indica la imagen base a partir de la cual se debe crear la imagen de docker, como por ejemplo "node" o "ubuntu" 
+Todo dockerfile debe comenzar con la instrucción ``FROM`` solo precedida de uno mas argumentos q representan argumentos de compilación pasados externamente
+ El ``FROM`` indica la imagen base a partir de la cual se debe crear la imagen de docker, como por ejemplo ``node`` o ``ubuntu`` 
 Ejemplo de un java con jdk instalado
-
 
 ```
 FROM openjdk:17-jdk-slim
+```
+
 ```
 
 ### CMD

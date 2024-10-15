@@ -67,9 +67,9 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 
 ## Avisos de sintaxis especial
 
-
 > [!NOTE]
 > Esto es una nota q resalta visualmente
+
 ```md
 > [!NOTE]
 > Esto es una nota q resalta visualmente
@@ -77,6 +77,7 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 
 > [!TIP]
 > Esto es un tip o una ayuda al lector
+
 ```md
 > [!TIP]
 > Esto es un tip o una ayuda al lector
@@ -84,6 +85,7 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 
 > [!WARNING]
 > Esto es un aviso que debes leer
+
 ```md
 > [!WARNING]
 > Esto es un aviso que debes leer
@@ -91,6 +93,7 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 
 > [!CAUTION]
 > Cuidado!! esto es importante
+
 ```md
 > [!CAUTION]
 > Cuidado!! esto es importante
@@ -98,8 +101,8 @@ Para resaltar bloques de código, se puede utilizar triple comillas invertidas (
 
 > [!IMPORTANT]
 > Ojo con esto, que es muy importante
+
 ```md
 > [!IMPORTANT]
 > Ojo con esto, que es muy importante
 ```
-
