@@ -56,12 +56,10 @@ Ejemplo de un java con jdk instalado
 FROM openjdk:17-jdk-slim
 ```
 
-```
-
 ### CMD
-Todo docker file debe contener un comando 'CMD' o un 'EMTRYPOINT' indicando el comando de inicio de la imagen
+Todo docker file debe contener un comando ``CMD`` o un ``ENTRYPOINT`` indicando el comando de inicio de la imagen
 
-El comando CMD indica el comando q se ejecutará para iniciar la imagen, a diferencia del comando 'RUN' q indica como construir la imagen, este indica como ejecutar la imagen 
+El comando CMD indica el comando q se ejecutará para iniciar la imagen, a diferencia del comando ``RUN`` q indica como construir la imagen, este indica como ejecutar la imagen 
 
 ```sh
 CMD "echo" "Hello, World!"
@@ -69,7 +67,7 @@ CMD "echo" "Hello, World!"
 
 ### ENTRYPOINT
 
-Define el comando de ejecución principal de la imagen, a diferencia de 'CMD' este es más estricto y no puede ser sobrescrito, definiendo así el comando principal de ejecución, si el usuario pasa un comando adicional se le agregará como argumentos 
+Define el comando de ejecución principal de la imagen, a diferencia de ``CMD`` este es más estricto y no puede ser sobrescrito, definiendo así el comando principal de ejecución, si el usuario pasa un comando adicional se le agregará como argumentos 
 
 ```sh
 ENTRYPOINT "python app.py"
@@ -78,3 +76,9 @@ ENTRYPOINT "python app.py"
 ENTRYPOINT ["python"]
 CMD ["app.py"]
 ```
+
+
+### RUN 
+
+El comando `RUN` se utiliza para ejecutar comando dentro de una imagen de docker. Cada vez que se ejecuta un comando `RUN` docker ejecuta ese comando en una nueva capa y el resultado se guarda en la imagen que estas construyendo
+
