@@ -6,7 +6,7 @@ El Dockerfile es un archivo q contiene todas las intrucciones q le dicen al dock
 
 Por conversion las intrucciones se escriben en mayúsculas 
 
-```md
+```shell
 # Use the node image as the base image
 FROM node
 
@@ -40,10 +40,10 @@ CMD ["echo", "Docker", "is", "cool"]
 
 Para construir la imagen de docker debemos correr el siguiente comando donde ejecutaremos el Dockerfile
 
-''docker build enki''
+```docker build enki```
 
-NOTE
-Debemos correr este comando estando en la ubicación donde se encuentra el docker file, en parámetro "enki" corresponde al nombre de la imagen
+> [!NOTE]
+> Debemos correr este comando estando en la ubicación donde se encuentra el docker file, en parámetro "enki" corresponde al nombre de la imagen
 
 
 ## Describiendo los comandos del dockerfile
@@ -51,6 +51,8 @@ Debemos correr este comando estando en la ubicación donde se encuentra el docke
 Todo dockerfile debe comenzar con la instrucción "FROM" solo precedida de uno mas argumentos q representan argumentos de compilación pasados externamente
  El "FROM" indica la imagen base a partir de la cual se debe crear la imagen de docker, como por ejemplo "node" o "ubuntu" 
 Ejemplo de un java con jdk instalado
+
+
 ```
 FROM openjdk:17-jdk-slim
 ```
